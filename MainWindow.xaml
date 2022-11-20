@@ -1,0 +1,47 @@
+﻿<Window x:Class="TimeReportingSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimeReportingSystem"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <TabControl>
+        <TabItem Header="WorkerView">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="142.522"/>
+                    <ColumnDefinition Width="51.214"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="3" Margin="0,139,200,0">
+                    <StackPanel>
+                        <TextBlock Text="Input Name:" Margin="10,0,0,0"></TextBlock>
+                        <TextBox x:Name="InputWorker" Margin="10" TextChanged="InputWorker_TextChanged"></TextBox>
+                        <Calendar x:Name="WorkerSelectDate" Margin="0,0,0,10" SelectedDatesChanged="WorkerSelectDate_SelectedDatesChanged"/>
+                        <StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Start:" Margin="0,10,0,10"/>
+                            <ComboBox x:Name="Instämpling" Height="20" Width="57" ItemsSource="{Binding TidVal}" SelectionChanged="Instämpling_SelectionChanged"/>
+                            <Label Content="Stop:" Margin="0,10,0,10"/>
+                            <ComboBox x:Name="Utstämpling" Height="20" Width="57" ItemsSource="{Binding TidVal}" SelectionChanged="Utstämpling_SelectionChanged"/>
+                        </StackPanel>
+                        <Button x:Name="Registrera" Content="Registrera" Width="100" Click="Registrera_Click"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="3" Grid.RowSpan="4" Margin="0,139,200,20" Grid.ColumnSpan="2">
+                    <ListBox x:Name="ListInstämpling" Background="Gainsboro"/>
+                </Grid>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
